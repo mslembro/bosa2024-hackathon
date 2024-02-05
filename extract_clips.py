@@ -18,6 +18,6 @@ df = df.reset_index()
 os.makedirs(args.datapath_out, mode = 0o777, exist_ok = True)
 
 for i, row in df.iterrows():
-    cmd = "ffmpeg -y -i '" + os.path.join(args.datapath_in, row["Video"]) + "' -ss " + str(row["Start Time"]) + " -to " + str(row["End Time"]) + " -c:v libx264 -crf 17 '" + os.path.join(args.datapath_out, "{:02d}".format(i) + "_" +row["Fragment Name"] + "_" + row["Video"]) + "'"   
+    cmd = "ffmpeg -y -i '" + os.path.join(args.datapath_in, row["Video"]) + "' -ss " + str(row["Start Time"]) + " -to " + str(row["End Time"]) + " -c:v libx264 -crf 12 '" + os.path.join(args.datapath_out, "{:02d}".format(i) + "_" +row["Fragment Name"] + "_" + row["Video"]) + "'"   
     print(cmd)
     os.system(cmd)

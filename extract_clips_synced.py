@@ -39,7 +39,7 @@ for i, row in df.iterrows():
         delta = timedelta(hours=duration.hour, minutes=duration.minute, seconds=duration.second,microseconds=duration.microsecond)
         video_end = video_start + delta
 
-        print(video_start, video_end)
+        print(video_start, video_end, st)
         if st > video_start and st < video_end:
             #extract start time in video
             clip_start = st-video_start
@@ -53,7 +53,7 @@ for i, row in df.iterrows():
             print(cmd)
             os.system(cmd)
 
-    if len(vstack_videos) > 0:
+    '''if len(vstack_videos) > 0:
         cmd = "ffmpeg -n"
         for vid in vstack_videos:
             cmd += " -i '" + vid + "'"
@@ -61,4 +61,4 @@ for i, row in df.iterrows():
         print(cmd)
         os.system(cmd)
     else:
-        print("No video clip can be generated in given interval")
+        print("No video clip can be generated in given interval")'''
